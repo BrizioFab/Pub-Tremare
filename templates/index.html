@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Tremare Pub - Baia, Napoli - Cocktail & Consegna in Barca{% endblock %}
+
+{% block content %}
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-logo">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Tremare Pub Logo" class="logo-img">
+        </div>
+        <h1 class="hero-title">TREMARE</h1>
+        <p class="hero-subtitle">La città sommersa</p>
+        <p class="hero-description">Cocktail artigianali, birra fresca e il fascino del porto di Baia.</p>
+        <p class="hero-description-secondary">Consegne direttamente sulla tua barca.</p>
+        <a href="/boat-delivery" class="cta-button cta-primary">Ordina in Barca 🚤</a>
+    </div>
+</section>
+
+<!-- FEATURED SECTION - ABOUT -->
+<section class="about">
+    <div class="section-container">
+        <div class="about-text">
+            <h2>Benvenuto a Tremare</h2>
+            <p>
+                Situato nel cuore del porto di Baia, Tremare è il punto di incontro perfetto per chi ama il mare,
+                la convivialità e i cocktail ben fatti. Ogni drink è una storia, ogni sorso è un'esperienza.
+            </p>
+            <p>
+                Dal nostro bancone con vista sulla baia puoi ammirare le imbarcazioni mentre assaggi cocktail
+                ispirati alla tradizione mediterranea e alla mitologia classica di questi luoghi straordinari.
+            </p>
+            <div class="about-highlights">
+                <div class="highlight-item">
+                    <h4>🍹 Cocktail Artigianali</h4>
+                    <p>Creati dal nostro bartender con ingredienti selezionati</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>🍺 Birra Artigianale</h4>
+                    <p>Selezione locale e internazionale sempre fresca</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>🚤 Consegna in Barca</h4>
+                    <p>Raggiungiamo la tua imbarcazione nel porto</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED MENU SECTION -->
+<section class="featured-menu">
+    <div class="section-container">
+        <h2>Specialità della Casa</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <div class="card-icon">🍸</div>
+                <h3>Tremare Blu</h3>
+                <p>Rum, Blue Curaçao, succo di lime, sale marino</p>
+                <span class="price">€9</span>
+                <a href="/menu" class="card-link">Vedi tutto il menù →</a>
+            </div>
+            <div class="menu-card">
+                <div class="card-icon">🍺</div>
+                <h3>Birra Artigianale</h3>
+                <p>Selezione di craft beer dal territorio campano</p>
+                <span class="price">€5-7</span>
+                <a href="/menu" class="card-link">Vedi tutto il menù →</a>
+            </div>
+            <div class="menu-card">
+                <div class="card-icon">🧀</div>
+                <h3>Burrata e Pomodori</h3>
+                <p>Burrata fresca, pomodori di collina, basilico</p>
+                <span class="price">€9</span>
+                <a href="/menu" class="card-link">Vedi tutto il menù →</a>
+            </div>
+        </div>
+        <a href="/menu" class="cta-button cta-secondary">Scopri il Menù Completo</a>
+    </div>
+</section>
+
+<!-- BOAT DELIVERY HERO SECTION -->
+<section class="boat-delivery-preview">
+    <div class="section-container">
+        <div class="boat-delivery-content">
+            <div class="boat-text">
+                <h2>Ordina Direttamente dalla Tua Barca</h2>
+                <p>
+                    Non sai dove parcheggiare il tuo drink? Tremare lo porta a te! Se sei in barca nella baia
+                    o nelle vicinanze, contattaci via WhatsApp e ci raggiungierai con i tuoi ordini.
+                </p>
+                <ul class="boat-benefits">
+                    <li>✓ Consegna veloce e affidabile</li>
+                    <li>✓ Cocktail freschi preparati al momento</li>
+                    <li>✓ Pagamento flessibile</li>
+                    <li>✓ Servizio friendly e discreto</li>
+                </ul>
+                <a href="https://wa.me/3770920451?text=Ciao%20Tremare!%20Sono%20in%20barca%20nella%20baia%20e%20vorrei%20ordinare..."
+                   class="cta-button cta-primary">
+                   Ordina su WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA SECTION - FINAL -->
+<section class="final-cta">
+    <h2>Pronto a provare Tremare?</h2>
+    <p>Contattaci e scopri di persona la magia della baia</p>
+    <div class="cta-buttons">
+        <a href="/boat-delivery" class="cta-button cta-primary">Scopri la Consegna 🚤</a>
+        <a href="/contatti" class="cta-button cta-secondary">Contattaci</a>
+    </div>
+</section>
+{% endblock %}

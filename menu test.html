@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menù Tremmare</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("img/Mappa antica.png") no-repeat center center fixed;
+            background-size: cover;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .menu-container {
+            padding: 20px;
+            backdrop-filter: blur(2px);
+        }
+
+        /* Barra filtri */
+        .menu-filters {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0,0,0,0.6);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .menu-logo {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        .filter-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .filter-list li {
+            background: rgba(255,255,255,0.85);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Sezioni */
+.menu-section {
+    background: rgba(255,255,255,0.65); /* più trasparente */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(1px); /* leggero effetto vetro */
+}
+
+/* Card pietanze */
+.menu-item {
+    background: rgba(0,0,0,0.08); /* più trasparente */
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(1px);
+}
+
+
+        .menu-item h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .price {
+            font-weight: bold;
+            float: right;
+        }
+
+        .ingredients,
+        .allergens {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="menu-container">
+
+    <!-- Barra filtri -->
+    <div class="menu-filters">
+        <img src="img/logo.png" alt="Logo Tremmare" class="menu-logo">
+
+        <ul class="filter-list">
+            <li data-target="antipasti">Antipasti</li>
+            <li data-target="mare">Panini di Mare</li>
+            <li data-target="terra">Panini di Terra</li>
+            <li data-target="bibite">Bibite</li>
+            <li data-target="dessert">Dessert</li>
+        </ul>
+    </div>
+
+    <!-- Antipasti -->
+    <section id="antipasti" class="menu-section">
+        <h2>Antipasti</h2>
+
+        <div class="menu-item">
+            <h3>Nome Pietanza</h3>
+            <span class="price">€00</span>
+            <p class="ingredients">Ingredienti: ...</p>
+            <p class="allergens">Allergeni: ...</p>
+        </div>
+        <div class="menu-item">
+            <h3>Nome Pietanza</h3>
+            <span class="price">€00</span>
+            <p class="ingredients">Ingredienti: ...</p>
+            <p class="allergens">Allergeni: ...</p>
+        </div>
+        <div class="menu-item">
+            <h3>Nome Pietanza</h3>
+            <span class="price">€00</span>
+            <p class="ingredients">Ingredienti: ...</p>
+            <p class="allergens">Allergeni: ...</p>
+        </div>
+        <div class="menu-item">
+            <h3>Nome Pietanza</h3>
+            <span class="price">€00</span>
+            <p class="ingredients">Ingredienti: ...</p>
+            <p class="allergens">Allergeni: ...</p>
+        </div>
+        <div class="menu-item">
+            <h3>Nome Pietanza</h3>
+            <span class="price">€00</span>
+            <p class="ingredients">Ingredienti: ...</p>
+            <p class="allergens">Allergeni: ...</p>
+        </div>
+        
+
+        <div class="menu-item">
+            <h3>Nome Pietanza</h3>
+            <span class="price">€00</span>
+            <p class="ingredients">Ingredienti: ...</p>
+            <p class="allergens">Allergeni: ...</p>
+        </div>
+    </section>
+
+    <!-- Panini di Mare -->
+    <section id="mare" class="menu-section">
+        <h2>Panini di Mare</h2>
+
+        <div class="menu-item">
+            <h3>Nome Panino</h3>
+            <span class="price">€00</span>
+            <p class="ingredients">Ingredienti: ...</p>
+            <p class="allergens">Allergeni: ...</p>
+        </div>
+
+        <div class="menu-item">
+            <h3>Nome Panino</h3>
+            <span class="price">€00</span>
+            <p class="ingredients">Ingredienti: ...</p>
+            <p class="allergens">Allergeni: ...</p>
+        </div>
+    </section>
+
+    <!-- Panini di Terra -->
+    <section id="terra" class="menu-section">
+        <h2>Panini di Terra</h2>
+
+        <div class="menu-item">
+            <h3>Nome Panino</h3>
+            <span class="price">€00</span>
+            <p class="ingredients">Ingredienti: ...</p>
+            <p class="allergens">Allergeni: ...</p>
+        </div>
+
+        <div class="menu-item">
+            <h3>Nome Panino</h3>
+            <span class="price">€00</span>
+            <p class="ingredients">Ingredienti: ...</p>
+            <p class="allergens">Allergeni: ...</p>
+        </div>
+    </section>
+
+    <!-- Bibite -->
+    <section id="bibite" class="menu-section">
+        <h2>Bibite</h2>
+
+        <div class="menu-item">
+            <h3>Nome Bibita</h3>
+            <span class="price">€00</span>
+            <p class="ingredients">Ingredienti: ...</p>
+            <p class="allergens">Allergeni: ...</p>
+        </div>
+

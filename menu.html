@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Taverna del Corsaro - Menù</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --paper:#d8bc87;
+    --paper-dark:#b6935d;
+    --burn:#2a1b12;
+    --ink:#24160f;
+    --sepia:#5e4123;
+    --gold:#8b6738;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    padding:40px;
+    color:var(--ink);
+    font-family:'Cinzel', serif;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.04), transparent 20%),
+        radial-gradient(circle at 70% 60%, rgba(0,0,0,.25), transparent 30%),
+        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+        #15110d;
+}
+
+/* =========================
+   MAPPA PIRATA
+========================= */
+
+.pirate-map{
+    max-width:1400px;
+    margin:auto;
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.08), transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(0,0,0,.15), transparent 35%),
+        repeating-linear-gradient(
+            45deg,
+            rgba(0,0,0,.02) 0px,
+            rgba(0,0,0,.02) 2px,
+            transparent 2px,
+            transparent 8px
+        ),
+        var(--paper);
+
+    border-radius:25px;
+
+    padding:80px;
+
+    box-shadow:
+        inset 0 0 120px rgba(0,0,0,.65),
+        inset 0 0 250px rgba(0,0,0,.45),
+        0 0 60px rgba(0,0,0,.7);
+}
+
+/* Carta usurata */
+
+.pirate-map::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(circle at 10% 15%, rgba(0,0,0,.18), transparent 12%),
+        radial-gradient(circle at 75% 35%, rgba(0,0,0,.12), transparent 15%),
+        radial-gradient(circle at 30% 80%, rgba(0,0,0,.18), transparent 18%),
+        radial-gradient(circle at 85% 80%, rgba(0,0,0,.14), transparent 12%);
+
+    mix-blend-mode:multiply;
+    pointer-events:none;
+}
+
+/* Bordi bruciati */
+
+.pirate-map::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    box-shadow:
+        inset 0 0 30px #000,
+        inset 0 0 60px #000,
+        inset 0 0 100px rgba(0,0,0,.95);
+
+    pointer-events:none;
+}
+
+/* =========================
+   DECORAZIONI MAPPA
+========================= */
+
+.compass{
+    position:absolute;
+    top:40px;
+    right:50px;
+    font-size:140px;
+    opacity:.13;
+    transform:rotate(12deg);
+}
+
+.skull{
+    position:absolute;
+    left:40px;
+    top:120px;
+    font-size:90px;
+    opacity:.10;
+}
+
+.treasure{
+    position:absolute;
+    bottom:100px;
+    right:120px;
+    font-size:100px;
+    opacity:.12;
+    transform:rotate(-18deg);
+}
+
+.route{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+.route svg{
+    width:100%;
+    height:100%;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    text-align:center;
+    margin-bottom:70px;
+    position:relative;
+    z-index:2;
+}
+
+header h1{
+    font-size:4rem;
+    letter-spacing:6px;
+    text-transform:uppercase;
+    font-family:'IM Fell English SC', serif;
+
+    text-shadow:
+        2px 2px 0 rgba(255,255,255,.2),
+        4px 4px 8px rgba(0,0,0,.35);
+}
+
+header p{
+    margin-top:15px;
+    font-size:1.15rem;
+    font-style:italic;
+    color:var(--sepia);
+}
+
+/* =========================
+   SEZIONI
+========================= */
+
+.menu-section{
+    margin-bottom:70px;
+    position:relative;
+    z-index:2;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:20px;
+
+    margin-bottom:35px;
+
+    font-size:2rem;
+    text-transform:uppercase;
+    color:#3d2514;
+}
+
+.section-title::before,
+.section-title::after{
+    content:"☠";
+    opacity:.55;
+    font-size:1.3rem;
+}
+
+/* =========================
+   VOCI MENU
+========================= */
+
+.menu-item{
+    padding:20px 24px;
+    margin-bottom:22px;
+
+    background:rgba(255,255,255,.08);
+
+    border-left:4px solid rgba(0,0,0,.35);
+
+    box-shadow:
+        inset 0 0 25px rgba(0,0,0,.12);
+
+    transition:.25s;
+}
+
+.menu-item:hover{
+    transform:translateX(4px);
+}
+
+.item-top{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.item-name{
+    font-size:1.2rem;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+.dots{
+    flex:1;
+    border-bottom:2px dotted rgba(0,0,0,.5);
+    transform:translateY(3px);
+}
+
+.price{
+    font-weight:bold;
+    font-size:1.1rem;
+}
+
+.description{
+    margin-top:10px;
+    line-height:1.7;
+    color:#4d3522;
+}
+
+.ingredients{
+    margin-top:12px;
+    padding:12px;
+    border:1px dashed rgba(0,0,0,.35);
+    background:rgba(0,0,0,.04);
+}
+
+.ingredients strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+.allergens{
+    margin-top:10px;
+    padding:10px;
+    background:rgba(0,0,0,.08);
+    border-left:3px solid rgba(0,0,0,.4);
+}
+
+.allergens strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    margin-top:70px;
+    text-align:center;
+    font-style:italic;
+    color:#4d3522;
+    line-height:2;
+    position:relative;
+    z-index:2;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .pirate-map{
+        padding:40px 25px;
+    }
+
+    header h1{
+        font-size:2.4rem;
+    }
+
+    .item-top{
+        flex-wrap:wrap;
+    }
+
+    .dots{
+        display:none;
+    }
+
+    .price{
+        width:100%;
+        margin-top:5px;
+    }
+
+    .compass,
+    .skull,
+    .treasure{
+        display:none;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="pirate-map">
+
+    <div class="compass">🧭</div>
+    <div class="skull">☠</div>
+    <div class="treasure">✖</div>
+
+    <div class="route">
+        <svg viewBox="0 0 1200 1200">
+            <path
+                d="M100 200 C300 100, 400 400, 600 350
+                   S850 500, 1000 850"
+                fill="none"
+                stroke="#3f2a18"
+                stroke-width="4"
+                stroke-dasharray="14 10"
+                opacity="0.35"/>
+        </svg>
+    </div>
+
+    <!-- HEADER -->
+
+    <header>
+        <h1>La Taverna del Corsaro</h1>
+        <p>
+            Carta nautica delle vivande recuperata dai mari più pericolosi
+            dei sette oceani.
+        </p>
+    </header>
+
+    <!-- ANTIPASTI -->
+
+    <section class="menu-section">
+
+        <h2 class="section-title">Antipasti</h2>
+
+        <div class="menu-item">
+
+            <div class="item-top">
+                <span class="item-name">Nome Pietanza</span>
+                <span class="dots"></span>
+                <span class="price">€00.00</span>
+            </div>
+
+            <div class="description">
+                Inserire descrizione della pietanza.
+            </div>
+
+            <div class="ingredients">
+                <strong>Ingredienti</strong>
+                Inserire ingredienti.
+            </div>
+
+            <div class="allergens">
+                <strong>Allergeni</strong>
+                Inserire allergeni.
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PANINI DI MARE -->
+
+    <section class="menu-section">
+
+        <h2 class="section-title">Panini di Mare</h2>
+
+        <div class="menu-item">
+
+            <div class="item-top">
+                <span class="item-name">Nome Panino</span>
+                <span class="dots"></span>
+                <span class="price">€00.00</span>
+            </div>
+
+            <div class="description">
+                Inserire descrizione del panino.
+            </div>
+
+            <div class="ingredients">
+                <strong>Ingredienti</strong>
+                Inserire ingredienti.
+            </div>
+
+            <div class="allergens">
+                <strong>Allergeni</strong>
+                Inserire allergeni.
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PANINI DI TERRA -->
+
+    <section class="menu-section">
+
+        <h2 class="section-title">Panini di Terra</h2>
+
+        <div class="menu-item">
+
+            <div class="item-top">
+                <span class="item-name">Nome Panino</span>
+                <span class="dots"></span>
+                <span class="price">€00.00</span>
+            </div>
+
+            <div class="description">
+                Inserire descrizione del panino.
+            </div>
+
+            <div class="ingredients">
+                <strong>Ingredienti</strong>
+                Inserire ingredienti.
+            </div>
+
+            <div class="allergens">
+                <strong>Allergeni</strong>
+                Inserire allergeni.
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- BIBITE -->
+
+    <section class="menu-section">
+
+        <h2 class="section-title">Bibite</h2>
+
+        <div class="menu-item">
+
+            <div class="item-top">
+                <span class="item-name">Nome Bibita</span>
+                <span class="dots"></span>
+                <span class="price">€00.00</span>
+            </div>
+
+            <div class="description">
+                Inserire descrizione della bevanda.
+            </div>
+
+            <div class="ingredients">
+                <strong>Ingredienti</strong>
+                Inserire ingredienti.
+            </div>
+
+            <div class="allergens">
+                <strong>Allergeni</strong>
+                Inserire allergeni.
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- DESSERT -->
+
+    <section class="menu-section">
+
+        <h2 class="section-title">Dessert</h2>
+
+        <div class="menu-item">
+
+            <div class="item-top">
+                <span class="item-name">Nome Dessert</span>
+                <span class="dots"></span>
+                <span class="price">€00.00</span>
+            </div>
+
+            <div class="description">
+                Inserire descrizione del dessert.
+            </div>
+
+            <div class="ingredients">
+                <strong>Ingredienti</strong>
+                Inserire ingredienti.
+            </div>
+
+            <div class="allergens">
+                <strong>Allergeni</strong>
+                Inserire allergeni.
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        “Che il vento gonfi le vele e che il rum non manchi mai.
+        Segui la rotta tracciata sulla mappa e scoprirai i tesori
+        culinari nascosti nella Taverna del Corsaro.”
+    </footer>
+
+</div>
+
+</body>
+</html>
